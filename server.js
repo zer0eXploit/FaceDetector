@@ -43,8 +43,6 @@ app.post("/imageUrl", image.handleApiCall);
 app.put("/image", (req, res) => image.updateEntry(req, res, db));
 
 //Server Config
-let port = process.env.PORT;
-port === undefined ? (port = 3000) : port;
-app.listen(port, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("Server started on port " + port + "!");
 });

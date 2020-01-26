@@ -44,5 +44,5 @@ app.put("/image", (req, res) => image.updateEntry(req, res, db));
 
 //Server Config
 app.listen(process.env.PORT || 3000, () => {
-  console.log("Server started on port " + port + "!");
+  console.log("Server started!");
 });

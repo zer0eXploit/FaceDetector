@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const knex = require("knex");
 const bcrypt = require("bcrypt");
+const path = require("path");
 
 // Controllers
 const signIn = require("./controllers/signIn");
@@ -25,15 +26,15 @@ const db = knex({
 const app = express();
 
 // Middlewares
+app.use(express.static(path.join(__dirname, "view")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
 //API Routes
 app.get("/", (req, res) => {
-  res.status(200).json("API Functioning! :')");
+  res.sendFile(path.join(__dirname, "view", "index.html"));
 });
-
 app.post("/signin", (req, res) => signIn.processAuth(req, res, db, bcrypt));
 app.post("/register", (req, res) =>
   register.processRegister(req, res, db, bcrypt)

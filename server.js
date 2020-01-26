@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -14,10 +15,10 @@ const image = require("./controllers/image");
 const db = knex({
   client: "pg",
   connection: {
-    host: "arjuna.db.elephantsql.com",
-    user: "tjauipvb",
-    password: "btnRzDnyH12YLb8pneRn4PO-0QrJm1xw",
-    database: "tjauipvb"
+    host: process.env.HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB
   }
 });
 

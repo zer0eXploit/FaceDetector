@@ -11,4 +11,4 @@ Please also don't forget to install dependencies.
 Please run by "npm start".
 
 # Live Demo
-https://glacial-dawn-85740.herokuapp.com/
+https://facedetector.herokuapp.com/

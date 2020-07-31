@@ -19,8 +19,8 @@ const db = knex({
     host: process.env.HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
-    database: process.env.DB
-  }
+    database: process.env.DB,
+  },
 });
 
 const app = express();
@@ -35,11 +35,14 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "view", "index.html"));
 });
+
 app.post("/signin", (req, res) => signIn.processAuth(req, res, db, bcrypt));
+
 app.post("/register", (req, res) =>
   register.processRegister(req, res, db, bcrypt)
 );
-app.get("/profile/:id", (req, res) => profile.profileGet(req, res, db));
+
+app.get("/profile/:id", profile.profileGet(db));
 app.post("/imageUrl", image.handleApiCall);
 app.put("/image", (req, res) => image.updateEntry(req, res, db));
 

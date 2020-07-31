@@ -1,10 +1,7 @@
-const profileGet = async (req, res, db) => {
+const profileGet = (db) => async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await db
-      .select("*")
-      .from("users")
-      .where({ id });
+    const user = await db.select("*").from("users").where({ id });
     // Check if the result is empty
     if (user.length) {
       res.json(user[0]);
@@ -18,5 +15,5 @@ const profileGet = async (req, res, db) => {
 };
 
 module.exports = {
-  profileGet
+  profileGet,
 };

@@ -11,4 +11,4 @@ Please also don't forget to install dependencies.
 Please run by "npm start".
 
 # Live Demo
-https://facedetector.herokuapp.com/
+https://face-clarifai.herokuapp.com/

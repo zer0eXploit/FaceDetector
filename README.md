@@ -6,7 +6,6 @@ This is called face detector because it detects human faces from an input image 
 
 Includes basic authentication and state management without redux as it is not a complex application.
 
-* * *
 
 ## How to run the app?
 
@@ -21,10 +20,8 @@ Also the following environment variables are expected:
 *   DB **# The database name.**
 *   CLARIFAI_API_KEY **# The clarifai API access key.**
 
+`Command: npm start || npm run dev`
 
-    Command: `npm start || npm run dev`
-
-* * *
 
 ## Live URL
 
